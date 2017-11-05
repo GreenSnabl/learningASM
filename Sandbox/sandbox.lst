@@ -1,0 +1,30 @@
+     1                                  section .data
+     2                                  section .text
+     3                                  
+     4                                      global _start
+     5                                      
+     6                                  _start:
+     7 00000000 90                          nop
+     8                                  
+     9                                  ; Put your experimental code between the two nops
+    10                                  
+    11 00000001 BA00000000              mov edx, 0		; clear dividend ? WARUM DIVIDEND IN REGISTER D ?
+    12 00000006 B803800000              mov eax, 0x8003		; dividend REGISTER A
+    13 0000000B B900010000              mov ecx, 0x100		; divisor REGISTER C
+    14 00000010 F7F1                    div ecx
+    15                                  			; division gibt rest in REGISTER D aus
+    16 00000012 B800000000              mov eax, 0
+    17 00000017 BB00000000              mov ebx, 0
+    18 0000001C B900000000              mov ecx, 0
+    19                                  
+    20 00000021 BA02000000              mov edx, 2
+    21 00000026 B803800000              mov eax, 0x8003
+    22 0000002B B900010000              mov ecx, 0x100
+    23 00000030 F7F1                    div ecx
+    24                                  
+    25                                  
+    26                                  ; Put your experimental code between the two nops
+    27                                  
+    28 00000032 90                          nop
+    29                                      
+    30                                  section .bss
